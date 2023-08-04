@@ -1,25 +1,31 @@
 # Digital Certificate Builder
 
-This is a study purpose project. The main goal was work with file hashes and
-digital certificate building through ficticious certificate authorities.
+This is a study purpose project. The main goal was work with file hashes and 
+digital certificate building through fictitious certificate authorities.
 
-Warning: this is intented to be run only locally. Uncomment SECRET_KEY in settings file
-to ensure the project works correctly. If you intend to use this in production environment
-please generate a new SECRET_KEY.
+Warning: this is intented to be run only locally. Uncomment SECRET_KEY in 
+settings file to ensure the project works correctly. If you intend to use this
+ in production environment please generate a new SECRET_KEY.
 
 # How to run
 
-Install python virtualenv package:
+1. Install python virtualenv package:
+
 ```make dependencies```
 
-Setup python virtual environment and install project dependencies:
+2. Setup python virtual environment and install project dependencies:
+
 ```make setup```
 
-Run server:
+3. Uncomment SECRET_KEY at digital-certificate-build/settings.py.
+
+4. Run server:
+
 ```make run```
 
 # Clean workspace
 To remove python virtual environment and cached files, run:
+
 ```make clean```
 
 
