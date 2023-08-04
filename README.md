@@ -7,6 +7,20 @@ Warning: this is intented to be run only locally. Uncomment SECRET_KEY in settin
 to ensure the project works correctly. If you intend to use this in production environment
 please generate a new SECRET_KEY.
 
+# How to run
+
+Install python virtualenv package:
+```make dependencies```
+
+Setup python virtual environment and install project dependencies:
+```make setup```
+
+Run server:
+```make run```
+
+# Clean workspace
+To remove python virtual environment and cached files, run:
+```make clean```
 
 
 # Validation
