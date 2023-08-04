@@ -1,0 +1,17 @@
+<h1>RSA keys generator</h1>
+  {% if public_key and private_key %}
+    <p><label for="public_key">Public key: </label></p>
+    <textarea name="public_key" rows="11" cols="70">{{public_key}}</textarea>
+    <p><label for="private_key">Private key: </label></p>
+    <textarea name="private_key" rows="11" cols="70">{{private_key}}</textarea>
+  {% endif %}
+<form method="post">
+  {% csrf_token %}
+  <input type="radio" name="bits" id = '1024bits' value="1024">
+  <label for="1024bits">1024 bits</label>
+  <input type="radio" name="bits" id = '2048bits' value="2048">
+  <label for="2048bits">2048 bits</label>
+  <button type="submit">submit</button>
+</form>
+<p><a href="../all_keys/">All keys</a></p>
+<p><a href="/">main</a></p>

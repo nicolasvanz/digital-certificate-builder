@@ -1,0 +1,17 @@
+<a href="/">main</a>
+<h2>All certificates</h2>
+{% if certificates_list %}
+  <ul>
+    {% for c in certificates_list %}
+      <li>
+        <p>{{c.ident}}</p>
+        <p>Subject: {{c.subject}}</p>
+        <p>Issuer: {{c.issuer}}</p>
+        <p>Serial number: {{c.serial_number}}</p>
+        <p><label for="cert">PEM: </label><textarea name = "cert" rows="11" cols="70">{{c.certificate}}</textarea></p>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+<p>None certificates available</p>
+{% endif %}

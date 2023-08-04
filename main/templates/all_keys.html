@@ -1,0 +1,17 @@
+<a href="/">Main</a>
+<h1>Key Pairs</h1>
+{% if keys_list %}
+  <ul>
+    {% for key in keys_list %}
+    <li>
+      <p>{{key.ident}} - {{key.bits}}</p>
+      <p><label for="public_key">Public key: </label></p>
+      <textarea name="public_key" rows="11" cols="70">{{key.public_key}}</textarea>
+      <p><label for="private_key">Private key: </label></p>
+      <textarea name="private_key" rows="11" cols="70">{{key.private_key}}</textarea>
+    </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>There are no keys available</p>
+{% endif %}

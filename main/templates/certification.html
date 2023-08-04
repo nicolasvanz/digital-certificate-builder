@@ -1,0 +1,66 @@
+<p><a href="/">main</a></p>
+<p><a href="../all_certificates/">all certificates</a></p>
+<h2>create a certificate autority</h2>
+{% if key_list %}
+<form method="post">
+  {% csrf_token %}
+  <label for="name">Name:</label>
+  <input type="text" name="name">
+  <p><label for="key">KEY: </label>
+  <select name="key" id ="key">
+    {% for key in key_list %}
+    <option value="{{key.id}}"">{{key.ident}} - {{key.bits}}</option>
+    {% endfor %}
+  </select></p>
+  <p><button type="submit">Create a CA</button></p>
+</form>
+{% else %}
+<p>none keys available, generate a key in <a href="../rsa_generator/">rsa generator</a></p>
+{% endif %}
+
+
+<h2>Generate a self signed certificate</h2>
+{% if ca_list %}
+<form method="post">
+  {% csrf_token %}
+  <select name="CA-selfSign" id="CA">
+    {% for ca in ca_list %}
+    <option value="{{ca.ident}}">{{ca.name}}</option>
+    {% endfor %}
+  </select>
+  <p><button type="submit">Generate</button></p>
+</form>
+  {% if self_signed_certificate %}
+  <textarea name="certificate" rows="11" cols="70">{{self_signed_certificate}}</textarea>
+  {% endif %}
+{% else %}
+<p>no certificate authorities</p>
+{% endif %}
+
+
+<h2>Generate a signed certificate</h2>
+{% if ca_list %}
+  <form method="post">
+    {% csrf_token %}
+    <label for="subject">Subject: </label>
+    <input type="text" name="subject">
+    <p><label for="CA-signed">Issuer: </label>
+    <select name="CA-signed">
+      {% for ca in ca_list %}
+        <option value="{{ca.ident}}">{{ca.name}}</option>
+      {% endfor %}
+    </select></p>
+    <p><label for="key">Public key: </label>
+    <select name="key">
+      {% for key in key_list %}
+      <option value="{{key.id}}">{{key.ident}} - {{key.bits}}</option>
+      {% endfor %}
+    </select></p>
+    <p><button type="submit">Generate</button></p>
+  </form>
+  {% if signed_certificate %}
+    <textarea name="certificate" rows="11" cols="70">{{signed_certificate}}</textarea>
+  {% endif %}
+{% else %}
+<p>no certificate authorities</p>
+{% endif %}
