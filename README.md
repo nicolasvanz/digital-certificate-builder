@@ -12,7 +12,9 @@ please generate a new SECRET_KEY.
 # Validation
 
 File hashes and certificates can be validated in:
-	https://www.fileformat.info/tool/hash.htm
-	https://report-uri.com/home/pem_decoder
+
+https://www.fileformat.info/tool/hash.htm
+
+https://report-uri.com/home/pem_decoder
 
 
